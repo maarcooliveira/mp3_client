@@ -1,14 +1,84 @@
-@import url('http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather');
-@import url('http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans');
+@import url('http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css');
 
-
-h1 {
-  font-size: 2.2rem;
-  color: lighten($orange, 25);
+body {
+	background-color: $color-text-light;
 }
 
-.test {
-  font-size: 1.2rem;
-  color: $blue;
+.main-view {
+	padding-top: $navbar-height-details-page + 40px;
 }
 
+.fa {
+	padding-right: 10px;
+}
+
+#success, #error {
+	display: none;
+}
+
+a {
+	color: $color-primary;
+	@include transition(all, 0.3s);
+}
+
+.accent {
+	color: $color-accent;
+}
+
+.accent:hover {
+	color: scale-color($color-accent, $lightness: -30%);
+} 
+
+.clear {
+	clear: both;
+}
+
+.no-padding {
+	padding: 0px !important;
+}
+
+#navbar {
+	background-color: $color-primary;
+	color: $color-text-light;
+	width: 100%;
+	height: $navbar-height-details-page;
+	position: fixed;
+	z-index: 999;
+	@include box-shadow(0, 2px, 4px, 2px, rgba(0,0,0,0.12));
+	@include transition(all, 0.3s);
+	
+	h3 {
+		color: $color-text-light;
+		line-height: $navbar-height-top-area;
+		margin: 0;
+	}
+
+	nav {
+
+		a {
+			line-height: $navbar-height-top-area;
+			border-bottom: 4px solid $color-primary;
+		}
+	}
+
+	a {
+		color: $color-navbar-url;
+		text-transform: uppercase;
+		@include transition(all, 0.3s);
+	}
+
+	a:hover {
+		cursor: pointer;
+		color: $color-text-light;
+	}
+}
+
+.selected {
+	border-bottom: 4px solid $color-accent !important;
+	color: $color-text-light !important;
+}
+
+#show-button:hover {
+	cursor: pointer;
+}

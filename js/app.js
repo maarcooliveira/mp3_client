@@ -1,24 +1,41 @@
-// var demoApp = angular.module('demoApp', ['demoControllers']);
-
 var demoApp = angular.module('demoApp', ['ngRoute', 'demoControllers', 'demoServices']);
 
-demoApp.config(['$routeProvider', function($routeProvider) {
+demoApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+
+   $httpProvider.defaults.headers.post  = {'Content-Type': 'application/x-www-form-urlencoded'};
+   $httpProvider.defaults.headers.put  = {'Content-Type': 'application/x-www-form-urlencoded'};
   $routeProvider.
-    when('/firstview', {
-    templateUrl: 'partials/firstview.html',
-    controller: 'FirstController'
+    when('/users', {
+    templateUrl: 'partials/users.html',
+    controller: 'UserController'
   }).
-  when('/secondview', {
-    templateUrl: 'partials/secondview.html',
-    controller: 'SecondController'
+  when('/tasks', {
+    templateUrl: 'partials/tasks.html',
+    controller: 'TaskController'
   }).
   when('/settings', {
     templateUrl: 'partials/settings.html',
     controller: 'SettingsController'
   }).
-  when('/llamalist', {
-    templateUrl: 'partials/llamalist.html',
-    controller: 'LlamaListController'
+  when('/users/new', {
+    templateUrl: 'partials/newuser.html',
+    controller: 'UserNewController'
+  }).
+  when('/users/info/:id', {
+    templateUrl: 'partials/userinfo.html',
+    controller: 'UserInfoController'
+  }).
+  when('/tasks/new', {
+    templateUrl: 'partials/newtask.html',
+    controller: 'TaskNewController'
+  }).
+  when('/tasks/edit/:id', {
+    templateUrl: 'partials/edittask.html',
+    controller: 'TaskEditController'
+  }).
+  when('/tasks/info/:id', {
+    templateUrl: 'partials/taskinfo.html',
+    controller: 'TaskInfoController'
   }).
   otherwise({
     redirectTo: '/settings'

@@ -1,0 +1,72 @@
+<div>		
+
+  <div class="row" id="loading">
+    <svg class="spinner small-2 small-offset-5 columns" width="65px" height="65px" viewBox="0 0 66 66">
+       <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box success radius columns small-12" id="success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box alert radius columns small-12" id="error">
+    </div>
+  </div>
+
+  <section id="data">
+    <div class="row">
+      <h3>{{user.name}}<h6><i class="fa fa-envelope"></i> {{user.email}}</h6></h3>
+      <br>
+    </div>
+
+    <div class="row">
+      <h4>Pending tasks</h4>
+      <br>
+    </div>
+
+    <section ng-repeat="task in tasks | filter: completed = 'false'">
+      <div class="row">
+        <a href="#/tasks/info/{{task._id}}" class="columns small-5">{{task.name}}</a>
+        <span class="columns small-2"><i class="fa fa-calendar-o"></i>{{task.deadline | date: 'mediumDate'}}</span>
+        <a class="columns small-2 small-offset-3 accent" ng-click="markCompleted(task._id)"><i class="fa fa-check-circle"></i> Completed</a>
+        <br><hr>
+      </div>
+    </section>
+    
+    <div class="row">
+      <br>
+      <h4>Completed tasks<small id="show-button"> <span>show</span> <i class="fa fa-eye"></i></small></h4>
+      <br>
+    </div>
+
+    <section id="completed-tasks">
+      <section ng-repeat="task in tasks | filter: completed = 'true'">
+        <div class="row">
+          <a href="#/tasks/info/{{task._id}}" class="columns small-5">{{task.name}}</a>
+          <span class="columns small-2 end"><i class="fa fa-calendar-o"></i>{{task.deadline | date: 'mediumDate'}}</span>
+          <br><hr>
+        </div>
+      </section>
+    </section>
+
+  </section>
+  
+	<!-- <form>
+	  <div class="row">
+          <div class="small-12 columns">
+            <input ng-model="data" type="text" placeholder="data">
+          </div>
+      </div>
+
+    <div class="text-center">
+      <button ng-click="setData()" class="button tiny info">Set Data</button>
+    </div>
+
+    {{displayText}}
+
+  </form> -->
+</div>
+

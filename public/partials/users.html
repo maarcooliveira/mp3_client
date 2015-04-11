@@ -1,0 +1,43 @@
+<div>		
+
+  <div class="row">
+    <h3>Users<h5>Everybody is here!</h5></h3>
+    <br>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box success radius columns small-12" id="success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box alert radius columns small-12" id="error">
+    </div>
+  </div>
+
+  <div class="row">
+    <h5 class="columns small-5"><strong>Name</strong></h5>
+    <h5 class="columns small-5"><strong>Email</strong></h5>
+    <h5><a class="columns small-2" href="#/users/new"><i class="fa fa-user-plus"></i> Add user</a></h5>
+    <br>
+    <hr>
+  </div>
+
+  <div class="row" id="loading">
+    <svg class="spinner small-2 small-offset-5 columns" width="65px" height="65px" viewBox="0 0 66 66">
+       <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+  </div>
+
+  <section ng-repeat="user in users.data">
+    <div class="row" id="user-{{user._id}}">
+      <a href="#/users/info/{{user._id}}" class="columns small-5">{{user.name}}</a>
+      <span class="columns small-5">{{user.email}}</span>
+      <a class="columns small-2 accent" ng-click="delete(user._id)"><i class="fa fa-minus-circle"></i> Delete</a>
+      <br><hr>
+    </div>
+  </section>
+
+  
+</div>
+

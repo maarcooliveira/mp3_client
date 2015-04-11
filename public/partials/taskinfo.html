@@ -1,0 +1,39 @@
+<div>		
+
+  <div class="row" id="loading">
+    <svg class="spinner small-2 small-offset-5 columns" width="65px" height="65px" viewBox="0 0 66 66">
+       <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box success radius columns small-6" id="success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box alert radius columns small-6" id="error">
+    </div>
+  </div>
+
+  <section id="data">
+    <div class="row">
+      <h3 class="columns small-10">{{task.name}}</h3>
+      <h5><a class="columns small-2" href="#/tasks/edit/{{task._id}}"><i class="fa fa-pencil-square-o"></i> Edit task</a></h5>
+      <br>
+    </div>
+
+      <div class="row">
+      <h5>&emsp;{{task.completed === true ? '' : 'Not'}} Completed </h5>
+
+      <br><br>
+
+      <span><i class="fa fa-calendar-o"></i>Deadline: {{task.deadline | date: 'mediumDate'}}</span>
+      <br><br>
+      <span><i class="fa fa-user"></i>User assigned: <a href="{{task.assignedUser === '' ? 'javascript:void(0);' : '#/users/info/' + task.assignedUser}}">{{task.assignedUserName === '' ? 'Unassigned' : task.assignedUserName}}</a></span>
+      <br><br>
+      <span><i class="fa fa-file-text-o"></i>{{task.description === '' ? 'Description not provided' : task.description}}</span>
+    </div>
+  </section>
+</div>
+

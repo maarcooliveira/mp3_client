@@ -1,16 +1,32 @@
-<div class="list" ng-controller='SettingsController'>		
+<div>		
+  
+  <div class="row">
+    <h3>Settings<h5>Make sure everything look like the way you want</h5></h3>
+    <br>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box success radius columns small-12" id="success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box alert radius columns small-12" id="error">
+    </div>
+  </div>
+
 	<form>
 	  <div class="row">
-          <div class="small-12 columns">
-            <input ng-model="url" type="text" placeholder="URL">
-          </div>
-      </div>
+        <div class="small-12 columns">
+          <label>API URL
+            <input ng-model="url" type="text" placeholder="http://llamalove.com">
+          </label>
+        </div>
+    </div>
 
     <div class="text-center">
       <button ng-click="setUrl()" class="button tiny info">Set URL</button>
     </div>
-
-    {{displayText}}
 
   </form>
 </div>

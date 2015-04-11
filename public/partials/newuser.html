@@ -1,0 +1,44 @@
+<div>		
+  
+  <div class="row">
+    <h3>Add User<h5>This is too cool to be used alone</h5></h3>
+    <br>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box success radius columns small-6" id="success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box alert radius columns small-6" id="error">
+    </div>
+  </div>
+
+    
+	<form data-abide id="form">
+	  <div class="row">
+      <div class="small-6 columns no-padding" id="name-wrapper">
+        <label>Name <small>required</small>
+                <input ng-model="user.name" type="text" placeholder="Marco Oliveira" required pattern="[a-zA-Z]+"/>
+        </label>
+        <small class="error">Name is required and must be a string.</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns no-padding" id="email-wrapper">
+        <label>Email <small>required</small>
+                <input ng-model="user.email" type="email" placeholder="contact@marco.me" required/>
+        </label>
+        <small class="error">An email address is required.</small>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <button type="submit" class="button tiny info columns small-2 small-offset-4">Submit</button>
+    </div>
+  </form>
+</div>
+

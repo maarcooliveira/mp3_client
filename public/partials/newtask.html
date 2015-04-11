@@ -1,0 +1,68 @@
+<div>		
+  <div class="row">
+    <h3>Add Task<h5>Don't leave for today what you can do tomorrow</h5></h3>
+    <br>
+  </div>
+
+  <div class="row" id="loading">
+    <svg class="spinner small-2 small-offset-5 columns" width="65px" height="65px" viewBox="0 0 66 66">
+       <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box success radius columns small-6" id="success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div data-alert class="alert-box alert radius columns small-6" id="error">
+    </div>
+  </div>
+
+	<form data-abide id="form">
+	  <div class="row">
+      <div class="small-6 columns no-padding" id="name-wrapper">
+        <label>Name <small>required</small>
+                <input type="text" ng-model="task.name" placeholder="Forget my midterm grade" required/>
+        </label>
+        <small class="error">You need a name for your task</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns no-padding" id="deadline-wrapper">
+        <label>Deadline <small>required</small>
+          <datepicker date-format="fullDate">
+            <input ng-model="task.deadline" type="text" required>
+          </datepicker>
+        </label>
+        <small class="error">A deadline is required</small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns no-padding">
+        <label>Description
+                <input ng-model="task.description" type="text" placeholder=""/>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns no-padding">
+        <label>Assigned user
+                <select ng-model="task.assignedUser" ng-options="user._id as user.name for user in users" id="user-selected">
+                  <option ng-repeat="user in users" value="{{user._id}}" ng-model="task.assignedUserName">{{user.name}}</option>
+                </select>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <button type="submit" class="button tiny info columns small-2 small-offset-4">Submit</button>
+    </div>
+
+  </form>
+</div>
+
